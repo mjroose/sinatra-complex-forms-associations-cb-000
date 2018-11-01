@@ -33,7 +33,7 @@ class PetsController < ApplicationController
 
   patch '/pets/:id' do
     @pet = Pet.find_by_id(params[:id])
-    @owner = Owner.find_by_id(@pet.owner_id)
+    @owners = Owner.all
     redirect to "pets/#{@pet.id}"
   end
 end
