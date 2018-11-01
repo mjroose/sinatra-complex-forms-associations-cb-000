@@ -20,6 +20,7 @@ class PetsController < ApplicationController
     elsif !params[:pet][:owner_id].empty?
       @owner = Owner.find(params[:pet][:owner_id])
       @pet.owner = @owner
+      @pet.save
     end
 
     redirect to "pets/#{@pet.id}"
