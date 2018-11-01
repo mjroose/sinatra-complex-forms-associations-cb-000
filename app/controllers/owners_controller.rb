@@ -17,6 +17,7 @@ class OwnersController < ApplicationController
 
   get '/owners/:id/edit' do
     @owner = Owner.find(params[:id])
+    @owner.pets << Pet.create(name: params["pet"]["name"])
     erb :'/owners/edit'
   end
 
